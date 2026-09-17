@@ -1,0 +1,34 @@
+package com.Calebe.log_analizer;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+
+//getter is a easier way
+@Getter
+@NoArgsConstructor(access=AccessLevel.PROTECTED)
+@Entity
+@Table(name="mitre_tactic")
+public class MitreTactic{
+    
+    //create the id to this class
+    @Id
+    @GeneratedValue
+    private Long id;
+    
+    private String tacticId;
+    private String name;
+    private String description;
+
+    //protect constructor for database;
+    //but lombok makes it easier
+    // protected MitreTactic(){}
+
+    public MitreTactic(String tacticId, String name, String description){
+        this.tacticId = tacticId;
+        this.name = name;
+        this.description = description;
+    }
+
+}
