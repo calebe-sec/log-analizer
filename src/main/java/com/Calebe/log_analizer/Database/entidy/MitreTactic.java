@@ -17,6 +17,7 @@ public class MitreTactic{
     @GeneratedValue
     private Long id;
     
+    @Column(name = "tactic_id", unique = true, nullable = false)
     private String tacticId;
     private String name;
     private String description;
@@ -30,5 +31,10 @@ public class MitreTactic{
         this.name = name;
         this.description = description;
     }
-
+    
+    @Override
+    public String toString() {
+        return String.format("MitreTactic[id=%d, tacticId=%s, name=%s, description=%s]",
+        id, tacticId, name, description);
+    }
 }

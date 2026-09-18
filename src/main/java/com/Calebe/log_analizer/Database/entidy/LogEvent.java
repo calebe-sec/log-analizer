@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import java.time.LocalDateTime;
 
 //getter is a easier way
 @Getter
@@ -53,7 +54,7 @@ public class LogEvent{
     @Override
     public String toString(){
         return String.format("LogEvent[id=%d, sourceId=%d, timestamp=%tF %tT, sourceIp=%s, username=%s, eventType=%s]",
-            id, source, timestamp, timestamp, sourceIp, username, eventType
+            id, source.getId(), timestamp, timestamp, sourceIp, username, eventType
          );
     }
 }

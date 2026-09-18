@@ -37,4 +37,9 @@ public class DetectionRule{
         this.severity = severity;
     }
 
+    @Override
+    public String toString(){
+        return String.format("DetectionRule[id=%d, mitretactic=%d, name=%s, conditionConfig=%s, severity=%s]", id, tactic.getId(), name, conditionConfig, severity);
+    }
+
 }

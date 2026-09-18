@@ -34,5 +34,12 @@ public class LogSource{
         this.format = format;
 
     }
+    
+    @Override
+    public String toString(){
+        return String.format("LogSource[id=%d, name=%s, host=%s, logType=%s, format=%s]",
+            id, name, host, logType, format
+        );
+    }
 
 }

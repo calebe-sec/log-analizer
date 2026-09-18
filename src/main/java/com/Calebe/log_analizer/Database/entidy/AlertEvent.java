@@ -17,6 +17,10 @@ public class AlertEvent{
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "alert_id")
+    private Alert alert;
+
+    @ManyToOne
     @JoinColumn(name="log_event_id")
     private LogEvent logEvent;
 
@@ -24,8 +28,15 @@ public class AlertEvent{
     //but lombok makes it easier
     //protected AlertEvent(){}
 
-    public AlertEvent(LogEvent logEvent){
-        this.logEventId = logEvent;
+    public AlertEvent(Alert alert, LogEvent logEvent){
+        this.alert = alert;
+        this.logEvent = logEvent;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("AlertEvent[id=%d, alertId=%d, logEventId=%d]",
+            id, alert.getId(), logEvent.getId());
     }
 
 }

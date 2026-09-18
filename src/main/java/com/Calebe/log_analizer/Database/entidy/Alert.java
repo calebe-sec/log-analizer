@@ -21,7 +21,7 @@ public class Alert{
     //get ID to Log Source;
     @ManyToOne
     @JoinColumn(name="rule_id")
-    private DetectionRule ruleId;
+    private DetectionRule rule;
 
     private LocalDateTime createdAt;
     
@@ -32,10 +32,17 @@ public class Alert{
     //but lombok makes it easier
     // protected Alert(){}
 
-    public Alert(DetectionRule ruleId, String status, String description){
-        this.ruleId = ruleId;
+    public Alert(DetectionRule rule, String status, String description){
+        this.rule = rule;
         this.status = status;
         this.description = description;
+        this.createdAt = LocalDateTime.now();
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Alert[id=%d, ruleId=%d, createdAt=%tF, status=%s, description=%s", 
+        id, rule.getId(), createdAt, status, description);
     }
 
 }
